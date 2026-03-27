@@ -19,6 +19,7 @@ public class Student {
     private Integer age;
     private String major;
 
+
     LocalDateTime CreatedAt = LocalDateTime.now();
     
     public Student() {

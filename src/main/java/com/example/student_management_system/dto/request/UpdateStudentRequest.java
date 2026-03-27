@@ -1,4 +1,4 @@
-package com.example.studentmanagement.dto.request;
+package com.example.student_management_system.dto.request;
 
 
 public class UpdateStudentRequest {
