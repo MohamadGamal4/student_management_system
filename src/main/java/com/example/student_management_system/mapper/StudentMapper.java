@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 
 import com.example.student_management_system.dto.request.CreateStudentRequest;
+import com.example.student_management_system.dto.request.UpdateStudentRequest;
 import com.example.student_management_system.dto.response.StudentResponse;
 import com.example.student_management_system.entity.Student;
 import org.springframework.stereotype.Component;
@@ -12,14 +13,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class StudentMapper {
-    private Long id;
-    private String name;
-    private String email;
-    private int age;
-    private String major;
-    LocalDateTime CreatedAt = LocalDateTime.now();
 
-    
         public Student toEntity(CreateStudentRequest request) {
         Student student = new Student();
         student.setName(request.getName());
@@ -40,17 +34,7 @@ public class StudentMapper {
     }
 
 
-    public StudentMapper() {
-    }
 
-    public StudentMapper(Long id, String name, String email, int age, String major, LocalDateTime createdAt) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.age = age;
-        this.major = major;
-        CreatedAt = createdAt;
-    }
 
     public StudentResponse toResponse(Student student) {
         StudentResponse response = new StudentResponse();
@@ -63,7 +47,7 @@ public class StudentMapper {
         return response;
     }
 
-    public void updateEntityFromRequest(com.example.studentmanagement.dto.request.UpdateStudentRequest request, Student student) {
+    public void updateEntityFromRequest(UpdateStudentRequest request, Student student) {
         student.setName(request.getName());
         student.setAge(request.getAge());
         student.setMajor(request.getMajor());

@@ -3,21 +3,19 @@ package com.example.student_management_system.controller;
 import com.example.student_management_system.dto.request.CreateStudentRequest;
 import com.example.student_management_system.dto.response.StudentResponse;
 import com.example.student_management_system.service.StudentService;
-import com.example.studentmanagement.dto.request.UpdateStudentRequest;
+import com.example.student_management_system.dto.request.UpdateStudentRequest;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/students")
 public class StudentController {
 
   private final  StudentService studentService;
-
-    public StudentController(StudentService studentService) {
-        this.studentService = studentService;
-    }
 
     @PostMapping
     public ResponseEntity<StudentResponse> createStudent(@RequestBody CreateStudentRequest request) {

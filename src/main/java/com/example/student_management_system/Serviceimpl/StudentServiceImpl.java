@@ -7,23 +7,20 @@ import com.example.student_management_system.entity.Student;
 import com.example.student_management_system.mapper.StudentMapper;
 
 import com.example.student_management_system.service.StudentService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import com.example.studentmanagement.dto.request.UpdateStudentRequest;
+import com.example.student_management_system.dto.request.UpdateStudentRequest;
 
 import java.util.List;
 import java.util.Optional;
 
-
+@RequiredArgsConstructor
 @Service
 public class StudentServiceImpl implements StudentService {
 
     private final StudentMapper studentmapper;
     private final StudentRepo studentrepo;
 
-    public StudentServiceImpl(StudentMapper studentmapper, StudentRepo studentrepo) {
-        this.studentmapper = studentmapper;
-        this.studentrepo = studentrepo;
-    }
 
     @Override
     public StudentResponse CreateStudent(CreateStudentRequest request) {
