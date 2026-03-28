@@ -2,14 +2,13 @@ package com.example.student_management_system.Serviceimpl;
 
 import com.example.student_management_system.Repository.StudentRepo;
 import com.example.student_management_system.dto.request.CreateStudentRequest;
+import com.example.student_management_system.dto.request.UpdateStudentRequest;
 import com.example.student_management_system.dto.response.StudentResponse;
 import com.example.student_management_system.entity.Student;
 import com.example.student_management_system.mapper.StudentMapper;
-
 import com.example.student_management_system.service.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import com.example.student_management_system.dto.request.UpdateStudentRequest;
 
 import java.util.List;
 import java.util.Optional;
@@ -32,7 +31,7 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public List<StudentResponse> getAllStudents() {
         List<Student> students = studentrepo.findAll();
-        return studentmapper.toEntity(students);
+        return studentmapper.toResponse(students);
     }
 
     @Override
@@ -48,7 +47,7 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public StudentResponse UpdateStudent(Long id, UpdateStudentRequest request) {
 
-     Student student = studentrepo.findById(id).orElseThrow(() -> new RuntimeException("Student not found with id: " + id));
+        Student student = studentrepo.findById(id).orElseThrow(() -> new RuntimeException("Student not found with id: " + id));
 
         studentmapper.updateEntityFromRequest(request, student);
 
