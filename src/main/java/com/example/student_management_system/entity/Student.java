@@ -1,6 +1,7 @@
 package com.example.student_management_system.entity;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 
 import jakarta.persistence.Entity;
@@ -16,8 +17,8 @@ import lombok.*;
 @Entity
 public class Student {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
 
     private String name;
     private String email;
