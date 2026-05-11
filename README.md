@@ -5,30 +5,29 @@ A robust RESTful API built with Java and Spring Boot to manage student records. 
 ## Tech Stack
 * Java 21
 * Spring Boot 3 (Web, Data JPA)
-* PostgreSQL (Dockerized)
+* PostgreSQL
 * MapStruct (for object mapping)
 * Lombok (to reduce boilerplate)
 * Swagger/OpenAPI (for API documentation)
-* Docker & Docker Compose
 
 ## Key Features
 * Full CRUD Operations: Create, Read, Update, and Delete student records.
 * DTO Pattern: Decoupled internal entities from API payloads using request/response DTOs.
 * Automated Mapping: Utilized MapStruct for safe and fast mapping between Entities and DTOs.
-* Containerized Database: Simple and fast database setup using Docker Compose.
 * Auto-generated Documentation: Accessible API testing and documentation via Swagger UI.
 
 ## Getting Started
 
 ### Prerequisites
 * Java 21+ installed
-* Docker and Docker Compose installed
+* PostgreSQL installed and running locally
 * Maven (or use the provided mvnw wrapper)
 
 ### Installation & Running
 
-1. Start the PostgreSQL database:
-   docker-compose up -d
+1. Database Setup:
+   Create a local PostgreSQL database named `student_db`.
+   Ensure your username and password in `src/main/resources/application.properties` match your local PostgreSQL credentials.
 
 2. Run the Spring Boot application:
    ./mvnw spring-boot:run
